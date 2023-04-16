@@ -1,0 +1,33 @@
+#
+# location: ~/.xinitrc
+#
+
+dwmstatus 2>&1 >/dev/null &
+
+#setxkbmap -layout us,dvorak -variant dvp, -option grp:ctrls_toggle 
+setxkbmap us dvp
+setxkbmap -option caps:escape # Srly f*ck caps
+setxkbmap -option 'compose:rctrl'
+#setxkbmap -option 'grp:ctrls_toggle' # why doesn't this work?
+
+nitrogen --restore
+xbindkeys
+
+# Japanese input
+#export GTK_IM_MODULE=fcitx
+#export QT_IM_MODULE=fcitx
+#export SDL_IM_MODULE=fcitx
+#export XMODIFIERS=@im=fcitx
+#fcitx -d # start fcitx as a daemon
+
+# Start picom as daemon
+picom -b
+
+# Do not put anything else below this line!
+case $WM in
+dwm) exec dwm ;;
+hypr) exec Hypr ;;
+openbox) exec openbox ;;
+xfce) startxfce4 ;;
+*) exec dwm ;;
+esac
