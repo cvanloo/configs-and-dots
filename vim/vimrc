@@ -1,0 +1,37 @@
+unlet! skip_defaults_vim
+source $VIMRUNTIME/defaults.vim
+
+" Welcome to the current millenium
+set nocompatible
+set t_Co=256
+syntax on
+set showcmd
+
+" LINE NUMBERS:
+set rnu nu
+set colorcolumn=80,120
+set cursorline
+hi CursorLine cterm=NONE ctermbg=17 ctermfg=NONE
+hi CursorLineNr term=bold cterm=bold ctermfg=012 gui=bold
+
+" AUTOCOMPLETION:
+set path+=**
+set wildmenu
+
+" GENERAL:
+set smartindent autoindent
+set incsearch hlsearch " :nohlsearch
+set hidden
+
+" INVISIBLE CHARS:
+let &listchars="eol:↲,tab: ,space:·,lead:·,trail:~,extends:>,precedes:<,"
+set list
+hi NonText ctermfg=8
+hi SpecialKey ctermfg=8
+
+" SNIPPETS:
+nnoremap ,html :-1read $HOME/.vim/skeleton/html<CR>5jf>a
+
+command! MakeTags !ctags -R .
+
+nmap <ESC> :
