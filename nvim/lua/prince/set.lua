@@ -1,6 +1,11 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
+vim.g.lightline = {
+    --colorscheme = 'wombat',
+    colorscheme = 'seoul256',
+}
+
 vim.opt.cmdheight = 2
 vim.opt.signcolumn = 'yes'
 vim.opt.path:append('**')

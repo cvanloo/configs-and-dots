@@ -68,6 +68,7 @@ return require('packer').startup(function(use)
     use { 'eraserhd/parinfer-rust', run = 'cargo build --release' }
     use { 'bakpakin/janet.vim' }
 
+    use 'itchyny/lightline.vim'
     use 'sjl/badwolf'
 
     -- Automatically set up your configuration after cloning packer.nvim
