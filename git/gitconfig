@@ -1,0 +1,22 @@
+# location: ~/.gitconfig
+
+[diff]
+    tool = difftastic
+[difftool]
+    prompt = false
+[difftool "difftastic"]
+    cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+    difftool = true
+[alias]
+    dft = difftool
+[alias]
+	identity-set = "! read -p \"user.name: \" userName; read -p \"user.email: \" userEmail; read -p \"user.signingKey: \" userSigningKey; git config --global \"user.identities.$1.name\" \"$userName\"; git config --global \"user.identities.$1.email\" \"$userEmail\"; git config --global \"user.identities.$1.signingKey\" \"$userSigningKey\"; :"
+	identity-unset = "! git config --global --unset \"user.identities.$1.name\"; git config --global --unset \"user.identities.$1.email\"; git config --global --unset \"user.identities.$1.signingKey\"; :"
+	identity-use = "! git config user.name \"$(git config user.identities.$1.name)\"; git config user.email \"$(git config user.identities.$1.email)\"; git config user.signingKey \"$(git config user.identities.$1.signingKey)\"; :"
+[user]
+	useConfigOnly = true
+[commit]
+	gpgsign = true
+[log]
+#	showSignature = true
