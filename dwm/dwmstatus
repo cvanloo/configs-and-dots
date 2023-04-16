@@ -1,0 +1,9 @@
+# location: /usr/local/bin/dwmstatus
+while true; do
+    dat=$(date "+%a %d %b %Y %H:%M %Z")
+    lay=$(setxkbmap -query | grep "layout" | sed 's/layout:     //')
+    vol=$(pactl get-sink-volume @DEFAULT_SINK@ | grep -Eo "[0-9][0-9]%" | head -1)
+    ipa=$(ip -4 addr | grep -oP '(?<=inet\s)\d+(\.\d+){3}' | tail -1)
+    xsetroot -name "$ipa | $vol | $lay | $dat"
+    sleep 0.5
+done
