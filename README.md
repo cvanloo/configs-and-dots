@@ -1,5 +1,12 @@
 # Configuration and Dotfiles
 
+## Installation Guides
+
+- [Arch Linux](./Arch_Installation_Guide.md)
+- [Gentoo Linux](./Gentoo_Installation_Guide.md)
+- [NixOS](./Nixos_Installation_Guide.md)
+- [Additional Notes](./Notes/)
+
 ## Neovim
 
 Install Neovim
@@ -23,3 +30,8 @@ cd configs-and-dots
 rm -rf ~/.config/nvim
 cp -r nvim/ ~/.config/
 ```
+
+### Neovim Commands and Motions
+
+- [Commands and Montions](./nvim_cmds.md)
+- [Vim](./vim.md)

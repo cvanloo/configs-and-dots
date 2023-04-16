@@ -35,6 +35,23 @@ Count (Optional)
 :	Number of elements (motions) to operate on
 :	2, operate on two motions
 
+### Leader
+
+The global \<leader\> key is set to <kbd> </kbd> (Space).
+
+The local \<localleader\> is set to <kbd>,</kbd> (Comma).
+
+Command | Description
+:------ | :----------
+<leader>s  | Replace all occurrences of a word
+<leader>nh | Stop highlighting words after search
+<leader>x  | Make current file executable
+<leader>k  | Quickfixlist next
+<leader>j  | Quickfixlist previous
+<leader>f  | LSP format
+
+@todo: Explain Quickfixlist
+
 ### Motions
 
 Motion | Description
@@ -63,7 +80,7 @@ as     | a sentence
 I've rebound my <kbd>Capslock</kbd> key to be <kbd>ESC</kbd> instead, which is
 done at OS level, not in my nvim-config.
 
-`<C-x>`	means the Control-key (in this document just written as `Ctrl`) and x.
+`<C-x>`	means the Control-key pressed together with x.
 
 `<S-x>` means the Shift-key and x (in this document just written as the capital
 letter `X`).
@@ -72,7 +89,6 @@ letter `X`).
 
 Key  | Function
 :--- | :-------
-F1   | Open help
 j    | Move cursor down
 k    | Move cursor up
 h    | Move cursor left
@@ -105,7 +121,7 @@ d0   | Delete until start of line
 d/search | Delete from cursor position up to the next occurrence of "search"
 u    | Undo
 U    | Undo all changes of current line
-Ctrl-r | Redo
+\<C-r\> | Redo
 p    | Paste _after_ cursor (from neovim clipboard, for os clipboard use <C-S-v>)
 yy   | Copy current line
 y(motion) | Copy motion
@@ -114,9 +130,9 @@ R    | Enter Replace Mode (Allows to overwrite following text)
 c(motion) | Change (deletes motion and enters [Insert Mode](#Insert-Mode))
 ce   | Change until end of word
 cc   | Change whole line
-Ctrl-g | Show `position` and `filename`
-1-Ctrl-g | Show full file path
-2-Ctrl-g | Also show current buffer
+\<C-g> | Show `position` and `filename`
+1-\<C-g> | Show full file path
+2-\<C-g> | Also show current buffer
 G    | Move to bottom of file
 gg   | Move to top of file
 (line number)G | Move to line number (also works with \<line number\>gg)
@@ -130,8 +146,8 @@ g#   | Include matches that are not a whole word
 n    | Jump to next result
 N    | Jump to previous result
 %    | Jump to matching parentheses `(`,`[`,`{`,`}`,`]`,`)`
-Ctrl-o | Go back where you came from (jump history)
-Ctrl-i | Go forward again (jump history)
+\<C-o> | Go back where you came from (jump history)
+\<C-i> | Go forward again (jump history)
 ~    | Change (upper/lower)-case of current character
 V    | Enter [Visual-Line Mode](#Visual-Mode)
 v    | Enter [Visual Mode](#Visual-Mode)
@@ -153,8 +169,8 @@ m[a-zA-Z] | Set mark
 gx   | Open link under cursor in a webbrowser
 f\<motion\> | Jump forward to `motion`. The cursor is placed onto the motion.
 t\<motion\> | Jump forward to `motion`. The cursor is placed before the motion.
-Ctrl-a | Increment current (or next) number
-Ctrl-x | Decrement current (or next) number
+\<C-a> | Increment current (or next) number
+\<C-x> | Decrement current (or next) number
 zl   | Move viewport count to the right
 zh   | Move viewport count to the left
 zL   | Move viewport half screen-width to the right
@@ -173,18 +189,18 @@ ZQ   | Same as :q!
 
 Key  | Description
 :--- | :----------
-Ctrl-w j | Select pane below
-Ctrl-w k | Select pane above
-Ctrl-w h | Select pane left
-Ctrl-w l | Select pane right
-Ctrl-w x | Switch position of current pane with position of last active pane
-Ctrl-w r | Rotate window positions
-Ctrl-w H/L/K/J | Move window to far left/right/top/bottom
-Ctrl-w T | Move split into its own tab
-Ctrl-+ Ctrl-- Ctrl-> Ctrl-< | Resize split
-Ctrl-= | Resize all splits to equal dimensions
-Ctrl-_ | Resize window to maximal height
-Ctrl-| | Resize window to maximal width
+\<C-w> j | Select pane below
+\<C-w> k | Select pane above
+\<C-w> h | Select pane left
+\<C-w> l | Select pane right
+\<C-w> x | Switch position of current pane with position of last active pane
+\<C-w> r | Rotate window positions
+\<C-w> H/L/K/J | Move window to far left/right/top/bottom
+\<C-w> T | Move split into its own tab
+\<C-+> \<C--> \<C->> \<C-<> | Resize split
+\<C-=> | Resize all splits to equal dimensions
+\<C-_> | Resize window to maximal height
+\<C-|> | Resize window to maximal width
 
 #### Tab Movement
 
@@ -204,18 +220,18 @@ g<kbd>Tab</kbd> | Go to last accessed tab
 
 Key  | Function
 :--- | :-------
-Ctrl-j | Move current line down (I have this rebound to something else)
-Ctrl-k | Move current line up (I have this rebound to something else)
-Ctrl-x s | (When `set spell`) Display auto correction
-Ctrl-n | Select next element in completion-menu
-Ctrl-p | Select previous element in completion-menu
-Ctrl-e | Close completion menu
-Ctrl-a | Insert last typed text
-Ctrl-h | Delete character before cursor
-Ctrl-w | Delete word before cursor
-Ctrl-u | Delete line before cursor
-Ctrl-i | Insert a tab (expandtab: spaces instead)
-Ctrl-v | Insert non-digit literally (Ctrl-v \<Tab> to insert an actual tab, when expandtab is enabled)
+\<C-j> | Move current line down (I have this rebound to something else)
+\<C-k> | Move current line up (I have this rebound to something else)
+\<C-x> s | (When `set spell`) Display auto correction
+\<C-n> | Select next element in completion-menu
+\<C-p> | Select previous element in completion-menu
+\<C-e> | Close completion menu
+\<C-a> | Insert last typed text
+\<C-h> | Delete character before cursor
+\<C-w> | Delete word before cursor
+\<C-u> | Delete line before cursor
+\<C-i> | Insert a tab (expandtab: spaces instead)
+\<C-v> | Insert non-digit literally (\<C-v> \<Tab> to insert an actual tab, when expandtab is enabled)
 
 ### Visual Mode
 
@@ -238,9 +254,33 @@ gqq  | Format entire line.
 <    | Remove indentation (indent to the left)
 \>    | Add indentation (indent to the right)
 
-#### Visual Block Mode
+### Visual Block Mode
 
-Enter by pressing <kbd>Ctrl-v</kbd>
+Enter by pressing <kbd>\<C-v></kbd>
+
+1. Enter Insert mode, enter a '0'.
+        ```
+        0
+        ```
+2. Back in Normal mode above the '0', press 'yy' (yank the 0), '5p' (paste it 5 times)
+        ```
+        0
+        0
+        0
+        0
+        0
+        0
+        ```
+3. Select all zeros: enter Visual Block mode C-v and select all the zeros '5j'
+4. Press g and then C-a. This results in an incrementally numbered list:
+        ```
+        1
+        2
+        3
+        4
+        5
+        6
+        ```
 
 ### Command Mode
 
@@ -281,79 +321,18 @@ Command | Function
 * prefixing a command with `inv` toggles the function
 * appending an `!` to a command toggles the function
 
-### Leader
-
-The \<leader\> key is set to <kbd> </kbd> (Space).
-
-Key     | Description
-:------ | :----------
- s      | Replace all occurrences of a word
- nh     | Stop highlighting words after search
- j      | Move current line down
- k      | Move current line up
- m      | (Harpoon) Toggle quick-fix menu
- a      | (Harpoon) Add file to quick-fix-list
- ff or ,fs | Telescope find files
- fb     | Telescope buffers
- d or ,ld | Show LSP diagnostics
- lh     | Show LSP hover
- gd | LSP jump to definition
- gD | LSP jump to declaration
- dn | Go to next diagnostic
- dN | Go to previous diagnostic
-
-
 ### Terminal Mode
 
 Key  | Description
 :--- | :----------
 ESC  | Leave terminal mode
 
-### Advanced
-
-#### Inside & Around
-
-> NOTE: With some motions (" and ') the following will even work if your cursor
-> is placed outside of the motion. In that case it will jump to the next motion
-> on the _same_ line.
-
-Key  | Description
-:--- | :----------
-i    | inside
-a    | around
-di\<motion> | Delete inside of `motion`.
-di{  | Delete everything inbetween current braces.
-da\<motion> | Delete around `motion`.
-da{  | Delete everything inside and including current braces.
-ci{  | Change (puts you in insert mode) everything inside current braces.
-ci"  | Change (puts you in insert mode) everything inside current double quotes.
-vi{  | Highlight everything inside current braces.
-=i{  | Fix indentation between current braces.
-di(  | Delete everything in-between current parentheses.
-di'  | Delete everything in-between current single quotes.
-yi(  | Copy (yank) everything in-between current parentheses.
-f\<motion> | Jump forward to `motion`
-f"   | Jump forward to next double quote.
-gi   | Go to last insert location and switch to [Insert Mode](#Insert-Mode)
-viw  | Highlight current word (visual - inside - word)
-
-##### Treesitter Text Objects
-
-Having the treesitter text objects plugin installed and configured.
-
-Key  | Description
-:--- | :----------
-dif  | Delete inside function
-daf  | Delete around function
-dic  | Delete inside class
-dac  | Delete around class
-
-#### The G-Spot ;-)
+### The G-Spot ;-)
 
 Key  | Description
 :--- | :----------
 g; and g, | Jump around in changelist.
-Ctrl-G | Show information about current cursor position.
+\<C-G> | Show information about current cursor position.
 g8   | Get UTF-8 code of symbol under cursor.
 g<   | Reopen output of last command.
 g&   | Replay last "s"-command (find command)
@@ -381,71 +360,13 @@ gi   | Go to last insert location and switch to [Insert Mode](#Insert-Mode)
 :g/find/norm! (action) | Execute any command (action) you want.
 gg=G | Format whole file
 
-##### Incrementing multiple numbers
-
-* Enter Visual Block Mode (Ctrl-b)
-* g
-* Increment (Ctrl-a)
-
-This will automatically increment all numbers like this:
-
-```
-0  ->  1
-0  ->  2
-0  ->  3
-0  ->  4
-0  ->  5
-0  ->  6
-0  ->  7
-```
-
-### LSP
-
-Key  | Description
-:--- | :----------
-gd   | Go to definition
-gD   | Go to declaration (most lsp servers only support goto definition)
-gr   | Show references
-gi   | Go to implementation(s)
-gt   | Go to type definition
-gw   | Show document symbols
-gW   | Show workspace symbols
-
-Key  | Description
-:--- | :----------
-,ld  | Show hover window
-,lh  | Show errors/warnings
-,ls  | Show signature help
-
-Key  | Description
-:--- | :----------
-,la  | Show code actions
-,lr  | Rename
-,li  | Show incoming calls
-,lo  | Show outgoing calls
-
-### Macros
-
-1. Start recording by pressing <kbd>q</kbd> and a char, e.g. <kbd>a</kbd>.
-2. Do whatever you want to do.
-3. Stop recording by pressing <kbd>q</kbd>.
-4. Replay the macro by pressing <kbd>@</kbd> and the same char (e.g. <kbd>a</kbd>).
-
-### Vimdiff
-
-Key  | Description
-:--- | :----------
-dp   | put changes under cursor into the other file.
-do   | obtain changes under cursor from other file.
-]c   | jump to next diff
-[c   | jump to previous diff
-
 ### netrw (neovims file browser)
 
 Key | Description
 :-- | :----------
 \-  | Go up a directory
 cd  | Make browsing directory the current working directory
+%   | Create a file
 d   | Create a directory
 D   | Delete a file/directory
 gh  | Hide/unhide dot-files
@@ -475,7 +396,7 @@ md  | Apply diff to marked files (max. 3)
 me  | Place marked files on arg list and edit them
 mg  | Vimgrep marked files
 
-## Undo Tree
+### Undo Tree
 
 Key | Description
 :-- | :----------
@@ -509,7 +430,7 @@ From "acatton" via Lobste.rs:
 > g+ and g- to go the way I want, so I always try both until I realize it’s
 > going the right way :) .
 
-## Marks
+### Marks
 
 Key | Description
 :-- | :----------
@@ -525,7 +446,7 @@ d\`a | Delete from current cursor position to position of mark a
 ]\` | Jump to next lowercase mark
 [\` | Jump to previous lowercase mark
 
-### Special marks
+#### Special marks
 
 Mark | Description
 :--- | :----------
@@ -540,16 +461,129 @@ Mark | Description
 m<kbd>SPACE</kbd> | Delete all marks
 :delm a | Delete mark a
 
+### Macros
+
+1. Start recording by pressing <kbd>q</kbd> and a char, e.g. <kbd>a</kbd>.
+2. Do whatever you want to do.
+3. Stop recording by pressing <kbd>q</kbd>.
+4. Replay the macro by pressing <kbd>@</kbd> and the same char (e.g. <kbd>a</kbd>).
+
+### Registers
+
+When copying or deleting, text is stored into registers.
+
+A register is selected using `"` plus the register name.
+
+The system clipboard can be accessed using the `+` register.
+
+Copy into system clipboard: `"+y`.
+
+List registers and their contents: `:reg` (Command mode).
+
 ### Plugin specific
+
+#### Telescope
+
+Key     | Description
+:------ | :----------
+<leader>ff or ,fs | Telescope find files
+<leader>fb     | Telescope buffers
+<leader>fg     | Telescope live grep
+<leader>fl     | Telescope LSP references
+<leader>gf     | Telescope git files
+F1     | Telescope help tags
+
+#### LSP
+
+Key  | Description
+:--- | :----------
+gd   | Go to definition
+gD   | Go to declaration (most lsp servers only support goto definition)
+gr   | Show references
+gi   | Go to implementation(s)
+gy   | Go to type definition
+gw   | Show document symbols
+gW   | Show workspace symbols
+[d   | Go to next diagnostic
+]d   | Go to previous diagnostic
+
+Key  | Description
+:--- | :----------
+K    | Show hover window
+<leader>lh  | Show errors/warnings
+\<C-h> (Insert Mode) | Show signature help
+
+Key  | Description
+:--- | :----------
+<leader>la  | Show code actions
+<leader>lr  | Rename
+<leader>li  | Show incoming calls
+<leader>lo  | Show outgoing calls
+<leader>f   | Format file
+
+<details>
+
+<summary>I don't use vimdiff anymore</summary>
+
+#### Vimdiff
+
+Key  | Description
+:--- | :----------
+dp   | put changes under cursor into the other file.
+do   | obtain changes under cursor from other file.
+]c   | jump to next diff
+[c   | jump to previous diff
+
+</details>
+
+#### Inside & Around (vim-surround)
+
+> NOTE: With some motions (" and ') the following will even work if your cursor
+> is placed outside of the motion. In that case it will jump to the next motion
+> on the _same_ line.
+
+Key  | Description
+:--- | :----------
+i    | inside
+a    | around
+di\<motion> | Delete inside of `motion`.
+di{  | Delete everything inbetween current braces.
+da\<motion> | Delete around `motion`.
+da{  | Delete everything inside and including current braces.
+ci{  | Change (puts you in insert mode) everything inside current braces.
+ci"  | Change (puts you in insert mode) everything inside current double quotes.
+vi{  | Highlight everything inside current braces.
+=i{  | Fix indentation between current braces.
+di(  | Delete everything in-between current parentheses.
+di'  | Delete everything in-between current single quotes.
+yi(  | Copy (yank) everything in-between current parentheses.
+f\<motion> | Jump forward to `motion`
+f"   | Jump forward to next double quote.
+gi   | Go to last insert location and switch to [Insert Mode](#Insert-Mode)
+viw  | Highlight current word (visual - inside - word)
+
+#### Treesitter Text Objects
+
+Having the treesitter text objects plugin installed and configured.
+
+Key  | Description
+:--- | :----------
+dif  | Delete inside function
+daf  | Delete around function
+dic  | Delete inside class
+dac  | Delete around class
 
 #### nvim-cmp
 
 Key  | Description
 :--- | :----------
-Ctrl-n | Select next completion
-Ctrl-p | Select previous completion
+\<C-space> | Start completion / Open completion menu
+\<C-d> | Scroll documentation down
+\<C-f> | Scroll documentation up
+\<C-n> | Select next completion
+\<C-p> | Select previous completion
 <kbd>Enter</kbd> | Accept selected completion
-Ctrl-e | Close completion menu
+\<C-e> | Close completion menu
 
 #### Harpoon
 
@@ -557,24 +591,19 @@ Key  | Description
 :--- | :----------
 ,m | Toggle quick-fix menu
 ,a | Add file to quick-fix list
-Ctrl-[h,t,n,s] | Jump to according file from quick-fix list
+\<C-[h,t,n,s]> | Jump to according file from quick-fix list
 
-#### Telescope
+<details>
 
-Key  | Description
-:--- | :----------
-,ff or ,fs | Telescope find files
-,fb | Telescope buffers
-,fg | Telescope git-files
-,fl | Telescope lsp references
-,lg | Telescope live grep
-F1  | Telescope help tags
+<summary>I now use LSP format directly</summary>
 
 #### Neoformat
 
 Key  | Description
 :--- | :----------
 ,f   | Format buffer
+
+</details>
 
 #### vim-surround
 
@@ -592,6 +621,10 @@ yS(motion)(surrounding) | You surround motion and put it on its own line(s)
 ySS(motion)(surrounding) | You surround motion and put it on its own line(s)
 yss(motion)(surrounding) | You surround on the current line, ignoring leading whitespace
 v(selection)S(surrounding) | Surround selection with surrounding
+
+<details>
+
+<summary>Fugitive - replaced by neogit</summary>
 
 #### Fugitive
 
@@ -623,11 +656,10 @@ crc  | Revert commit under cursor
 coo  | Checkout commit under cursor
 :Gllog | Open git log
 
-## Language Specific
+</details>
 
-### Clojure
 
-#### Conjure
+### Conjure
 
 1. nvim some-file.clj
 2. :Clj # Launch nREPL
