@@ -1,5 +1,5 @@
 vim.g.mapleader = ' '
-vim.g.localleader = ','
+vim.g.maplocalleader = ','
 
 vim.opt.cmdheight = 2
 vim.opt.signcolumn = 'yes'
