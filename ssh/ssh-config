@@ -1,0 +1,24 @@
+# location: ~/.ssh/config
+AddKeysToAgent yes
+
+Host remarkable
+    User root
+    HostName 10.11.99.1
+    PubkeyAcceptedAlgorithms +ssh-rsa
+    HostkeyAlgorithms +ssh-rsa
+
+Host rocky
+    User rocky
+    Hostname mail.vanloo.ch
+    Port 2211
+
+# Default github account: cvanloo
+Host github.com
+    Hostname github.com
+    IdentityFile ~/.ssh/id_ed25519_cvanloo
+    IdentitiesOnly yes
+
+# Host github-username
+#     Hostname github.com
+#     IdentityFile ~/.ssh/id_rsa_username
+#     IdentitiesOnly yes
