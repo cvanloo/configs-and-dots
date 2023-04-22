@@ -24,10 +24,4 @@ xbindkeys
 picom -b
 
 # Do not put anything else below this line!
-case $WM in
-dwm) exec dwm ;;
-hypr) exec Hypr ;;
-openbox) exec openbox ;;
-xfce) startxfce4 ;;
-*) exec dwm ;;
-esac
+while type dwm >/dev/null ; do dwm && continue || break ; done
