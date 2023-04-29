@@ -1,4 +1,6 @@
+#
 # location: ~/.gitconfig
+#
 
 [diff]
     tool = difftastic
@@ -7,16 +9,32 @@
 [difftool "difftastic"]
     cmd = difft "$LOCAL" "$REMOTE"
 [pager]
-    difftool = true
+    difftool = false
+    #difftool = true
 [alias]
     dft = difftool
+[merge]
+    tool = meld
+[mergetool "meld"]
+    cmd = meld "$LOCAL" "$MERGED" "$REMOTE" --output "$MERGED"
+    #cmd = meld "$LOCAL" "$BASE" "$REMOTE" --output "$MERGED"
 [alias]
 	identity-set = "! read -p \"user.name: \" userName; read -p \"user.email: \" userEmail; read -p \"user.signingKey: \" userSigningKey; git config --global \"user.identities.$1.name\" \"$userName\"; git config --global \"user.identities.$1.email\" \"$userEmail\"; git config --global \"user.identities.$1.signingKey\" \"$userSigningKey\"; :"
 	identity-unset = "! git config --global --unset \"user.identities.$1.name\"; git config --global --unset \"user.identities.$1.email\"; git config --global --unset \"user.identities.$1.signingKey\"; :"
 	identity-use = "! git config user.name \"$(git config user.identities.$1.name)\"; git config user.email \"$(git config user.identities.$1.email)\"; git config user.signingKey \"$(git config user.identities.$1.signingKey)\"; :"
+	s = status -sb
 [user]
 	useConfigOnly = true
 [commit]
 	gpgsign = true
 [log]
 #	showSignature = true
+[color]
+	ui = auto
+	pager = no # because we use nvim as the pager
+[core]
+	pager = nvim -R
+[help]
+	autocorrect = 1
+[diff "exif"]
+	textconv = exiftool

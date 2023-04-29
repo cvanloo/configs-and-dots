@@ -5,5 +5,10 @@
 # Include defaults from /usr/share/X11/locale/en_US.UTF-8/Compose
 include "%L"
 
+#<Multi_key><a>: "ä"
+#<Multi_key><o>: "ö"
+#<Multi_key><u>: "ü"
+
 <Multi_key> <period> <backslash> : "λ" U03BB  # GREEK SMALL LETTER LAMBDA
+<Multi_key> <c> <a> <t> : "ᗢ"
 <Multi_key> <p> <m> : "±"
