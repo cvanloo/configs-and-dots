@@ -10,9 +10,6 @@ us dvp
 ch
 `)
 
-# -i case insensitive search
-# -p prompt string
-# dmenu reads list of options from stdin and prints chosen option to stdout
-(let [selection ($<_ dmenu -i -p "Keyboard Layout > " < ,layouts)
-      cmd (array/concat @["setxkbmap"] (string/split " " selection))]
-  ($* cmd))
+(def selection ($<_ dmenu -i -p "Keyboard Layout > " < ,layouts))
+($ "setxkbmap" ;(string/split " " selection))
+
