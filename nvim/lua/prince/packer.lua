@@ -68,6 +68,14 @@ return require('packer').startup(function(use)
     use { 'eraserhd/parinfer-rust', run = 'cargo build --release' }
     use { 'bakpakin/janet.vim' }
 
+    use {
+        'radenling/vim-dispatch-neovim',
+        requires = {
+            { 'tpope/vim-dispatch' },
+            { 'clojure-vim/vim-jack-in' },
+        }
+    }
+
     use 'itchyny/lightline.vim'
     use 'sjl/badwolf'
 
