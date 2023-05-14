@@ -54,7 +54,7 @@ bootloader.
 ```
 sudoedit /etc/mkinitcpio.conf
 ---
-HOOKS=(... udev ... keyboard keymap ... encrypt lvm2 ...)
+HOOKS=(base *udev* autodetect modconf kms  *keyboard* *keymap* consolefont block *encrypt* *lvm2* filesystems fsck)
 ```
 
 ```sh
@@ -66,3 +66,16 @@ In the bootloader, configure:
 ```
 options cryptdevice=UUID=<root-uuid>:cryptlvm root=/dev/System/root rw
 ```
+
+## Keyboard Layout
+
+Specify the keyboard layout in `/etc/vconsole.conf`:
+
+```
+KEYMAP=dvorak-programmer
+```
+
+Note that sometimes this file sometimes gets *magically* changed by evil
+things, e.g. Gnome for some reason.
+
+After changing the keyboard layout, re-run `mkinitcpio -p linux`.
