@@ -1,0 +1,15 @@
+-- https://neovim.io/doc/user/api.html#nvim_open_term()
+--function JackInJanet()
+--    --vim.fn.termopen("janet -e '(import spork/netrepl) (netrepl/server)'", {
+--    --    on_exit = function(_, exit_code, _)
+--    --        print('exited (' .. exit_code .. ')')
+--    --    end
+--    --})
+--    local handle = vim.api.nvim_create_buf({}, {})
+--    if handle == 0 then
+--        return false
+--    end
+--    vim.api.nvim_open_win(handle, true, {relative = 'win', bufpos = {100, 10}, width = 50, height = 10})
+--    local chan = vim.api.nvim_open_term(handle, {})
+--    vim.api.nvim_chan_send(chan, "janet -e '(import spork/netrepl) (netrepl/server)'")
+--end

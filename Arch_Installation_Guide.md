@@ -6,7 +6,7 @@
 * Use Balena Etcher to create a bootable usb from the iso, alteratively with dd:
 	
 		mkfs.vfat /dev/<disk> -I
-		dd if=<path-to-iso> of=/dev/<disk> status=progress
+		dd if=<path-to-iso> of=/dev/<disk> status=progress bs=4M conv=fsync oflag=direct
 
 * Select in the uefi/bios the usb to boot from  
 * You may have to disable Secure Boot
@@ -35,7 +35,7 @@
 
     For example Dvorak:
 
-        loadkeys dvorak
+        loadkeys dvorak-programmer
 
 * Verify boot mode: if the files exists, your in UEFI mode :)
 
@@ -172,7 +172,7 @@ If you don't have an esp, you need to create it first. In this example using fdi
 
     For example:
 
-        pacstrap /mnt base base-devel linux linux-firmware linux-headers man-db man-pages vim git dhcpcd zsh
+        pacstrap /mnt base base-devel linux linux-firmware linux-headers man-db man-pages vim git fish
 
 Instead of the linux kernel you can also install linux-lts, linux-zen, ... there are a lot more (Check the [archwiki](https://wiki.archlinux.org/index.php/Kernel)).
 
@@ -235,6 +235,8 @@ Instead of the linux kernel you can also install linux-lts, linux-zen, ... there
             LANG=en_US.UTF-8
             LC_MESSAGES=en_US.UTF-8
             LC_TIME=de_CH.UTF-8
+            LC_MEASUREMENT=de_CH.UTF-8
+            LC_NUMERIC=de_CH.UTF-8
         --------------------
 
     <span style="color:orange">Note:</span> check the manual on locale(7) to see what options you have:
@@ -245,7 +247,7 @@ Instead of the linux kernel you can also install linux-lts, linux-zen, ... there
 
         vim /etc/vconsole.conf
         ----------------------
-            KEYMAP=dvorak # Replace dvorak with your layout
+            KEYMAP=dvorak-programmer
         ----------------------
 
 * Network configuration
