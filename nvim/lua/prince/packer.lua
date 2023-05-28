@@ -60,9 +60,12 @@ return require('packer').startup(function(use)
     use { 'TimUntersberger/neogit', requires = 'nvim-lua/plenary.nvim' }
 
     use 'mbbill/undotree'
-    use 'tpope/vim-surround'
+    use { 'tpope/vim-surround', requires = { 'tpope/vim-repeat' } }
     use 'godlygeek/tabular'
     use 'ethanholz/nvim-lastplace'
+    --use 'cohama/lexima.vim' -- lexima won't work with parinfer, use nvim-autopairs instead!
+    use 'windwp/nvim-autopairs'
+    use 'ray-x/lsp_signature.nvim'
 
     use 'Olical/conjure'
     use { 'eraserhd/parinfer-rust', run = 'cargo build --release' }

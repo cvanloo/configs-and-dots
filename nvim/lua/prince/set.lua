@@ -6,6 +6,15 @@ vim.g.lightline = {
     colorscheme = 'seoul256',
 }
 
+vim.opt.guifont = { "Berkeley Mono", ":h10" }
+if vim.g.neovide then
+    -- vim.g.neovide_transparency = 1
+    -- vim.g.neovide_floating_blur_amount_x = 2.0
+    -- vim.g.neovide_floating_blur_amount_y = 2.0
+    -- vim.g.neovide_profiler = true
+    vim.g.neovide_cursor_vfx_mode = "ripple" -- railgun, torpedo, pixiedust, sonicboom, ripple, wireframe
+end
+
 vim.opt.cmdheight = 2
 vim.opt.signcolumn = 'yes'
 vim.opt.path:append('**')

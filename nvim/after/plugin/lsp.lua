@@ -33,12 +33,21 @@ local cmp_sources = {
     { name = 'cmp_tabnine' },
 }
 
+require('nvim-autopairs').setup({})
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+cmp.event:on(
+    'confirm_done',
+    cmp_autopairs.on_confirm_done()
+)
+
 lsp.setup_nvim_cmp({
     mapping = cmp_mappings,
     sources = cmp_sources,
 })
 
 lsp.on_attach(function(client, bufnr)
+    --require 'lsp_signature'.on_attach({ floating_window = false, }, bufnr)     -- this lags!
+
     --lsp.default_keymaps({buffer = bufnr})
     local opts = { buffer = bufnr, remap = false }
     vim.keymap.set('n', '<leader>lh', function() vim.diagnostic.open_float() end, opts)
@@ -64,5 +73,6 @@ end)
 
 -- configure lua language server for neovim
 require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
+--require 'lsp_signature'.setup({ floating_window = false }) -- this lags!
 
 lsp.setup()
