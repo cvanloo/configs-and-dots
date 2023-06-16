@@ -79,8 +79,17 @@ return require('packer').startup(function(use)
         }
     }
 
-    use 'itchyny/lightline.vim'
+    --use 'itchyny/lightline.vim'
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'nvim-tree/nvim-web-devicons', opt = true }
+    }
     use 'sjl/badwolf'
+    use 'Shatur/neovim-ayu'
+    use 'sainnhe/sonokai'
+    use 'theniceboy/nvim-deus'
+    use 'bluz71/vim-moonfly-colors'
+    use 'lunacookies/vim-colors-xcode'
 
     -- Automatically set up your configuration after cloning packer.nvim
     -- Put this at the end after all plugins

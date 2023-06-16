@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# location: /usr/local/bin/spot or ~/.local/bin/spot
+
+spotify --force-device-scale-factor=1.2

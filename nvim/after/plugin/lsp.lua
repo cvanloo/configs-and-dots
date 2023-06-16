@@ -33,7 +33,24 @@ local cmp_sources = {
     { name = 'cmp_tabnine' },
 }
 
-require('nvim-autopairs').setup({})
+local npairs = require('nvim-autopairs')
+npairs.setup({
+    disable_filetype = {"clojure"}
+})
+
+local rule = require('nvim-autopairs.rule')
+local cond = require('nvim-autopairs.conds')
+
+npairs.remove_rule("`")
+npairs.add_rule(rule("`", "`", "-clojure"))
+--[[npairs.add_rules(
+    rule("`", "`", "-clojure"),
+    {
+        rule("`", "`", "clojure")
+            :with_pair(cond.not_before_regex("("))
+    },
+)]]
+
 local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 cmp.event:on(
     'confirm_done',

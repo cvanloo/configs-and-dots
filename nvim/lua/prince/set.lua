@@ -1,11 +1,6 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
-vim.g.lightline = {
-    --colorscheme = 'wombat',
-    colorscheme = 'seoul256',
-}
-
 vim.opt.guifont = { "Berkeley Mono", ":h10" }
 if vim.g.neovide then
     -- vim.g.neovide_transparency = 1
