@@ -64,7 +64,7 @@ return require('packer').startup(function(use)
     use 'godlygeek/tabular'
     use 'ethanholz/nvim-lastplace'
     --use 'cohama/lexima.vim' -- lexima won't work with parinfer, use nvim-autopairs instead!
-    use 'windwp/nvim-autopairs'
+    --use 'windwp/nvim-autopairs'
     use 'ray-x/lsp_signature.nvim'
 
     use 'Olical/conjure'
@@ -88,6 +88,8 @@ return require('packer').startup(function(use)
     use 'sjl/badwolf'
     use 'Shatur/neovim-ayu'
     use 'sainnhe/sonokai'
+    use 'morhetz/gruvbox'
+    use 'tek256/simple-dark'
     use 'theniceboy/nvim-deus'
     use 'bluz71/vim-moonfly-colors'
     use 'lunacookies/vim-colors-xcode'
