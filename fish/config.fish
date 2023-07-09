@@ -5,6 +5,7 @@ set --export SUDO_EDITOR nvim
 set --export GIT_EDITOR nvim
 set --export TERM xterm-256color
 set --export MANPAGER "nvim +Man!"
+set --export CDPATH ".:~:~/code/"
 
 # Fix Dumb Java Apps
 set --export _JAVA_AWT_WM_NONREPARENTING 1
