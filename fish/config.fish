@@ -5,7 +5,7 @@ set --export SUDO_EDITOR nvim
 set --export GIT_EDITOR nvim
 set --export TERM xterm-256color
 set --export MANPAGER "nvim +Man!"
-set --export CDPATH "$PWD:$HOME:$HOME/code"
+#set --export CDPATH "$PWD:$HOME:$HOME/code"
 
 # Fix Dumb Java Apps
 set --export _JAVA_AWT_WM_NONREPARENTING 1
@@ -36,12 +36,12 @@ fish_vi_key_bindings
 #bind -M insert \cp history-search-backward
 #bind -M insert \cn history-search-forward
 
-bind -M insert \cz 'fg'
+#bind -M insert \cz 'fg'
+#
+#complete -c cd -f -a "(string join ' ' $CDPATH)"
+#complete -c cd -f -a "(ls -1a)"
 
-complete -c cd -f -a "(string join ' ' $CDPATH)"
-complete -c cd -f -a "(ls -1)"
-
-function cd
-    builtin cd $argv
-    echo "$PWD"
-end
+#function cd
+#    builtin cd $argv
+#    echo "$PWD"
+#end
