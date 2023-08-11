@@ -17,8 +17,21 @@
   (first (peg/match '(some (+ (* "Window id: " (<- :w+)) 1))
                     ($< xwininfo))))
 
-(def win-id (select-win))
+(defn capture-window
+ [save-path]
+ ($? scrot -f -w ,(select-win) ,save-path))
 
+(defn capture-selection
+  [save-path]
+  ($? scrot -fs ,save-path))
+
+# 1. Ask what to capture
+(def capture-fun
+  (case ($<_ dmenu -i -p "Capture > " < "Window\nSelection")
+    "Window" capture-window
+    "Selection" capture-selection))
+
+# 2. Ask where to save to
 (def loc-prefix ($<_ dmenu -i -l 5 -p "Save to > " < ,default-locations))
 
 (def name ($<_ dmenu -i -p "Name > " < ""))
@@ -28,14 +41,12 @@
                   name
                   (path/join loc-prefix name))))
 
+# 3. Do the capturing
 (if (not (nil? (os/stat save-path)))
   ($ notify-send -u low "file already exists")
-  (do
-    (def status
-      ($? scrot -f -w ,win-id ,save-path))
-    (if status
-      ($ notify-send -u low -i ,save-path "-" ,(string/join ["Screenshot saved to "
-                                                             "<span color='#acd7e5'>"
-                                                             save-path
-                                                             "</span>"]))
-      ($ notify-send -u low "unable to take screenshot"))))
+  (if (capture-selection save-path)
+    ($ notify-send -u low -i ,save-path "-" ,(string/join ["Screenshot saved to "
+                                                           "<span color='#acd7e5'>"
+                                                           save-path
+                                                           "</span>"]))
+    ($ notify-send -u low "unable to take screenshot")))
