@@ -10,7 +10,7 @@
 
 (def parse-layout (parse-fun "layout"))
 (def parse-variant (parse-fun "variant"))
-(def parse-volume (peg/compile '(any (+ (* (<- (* :d+ "%"))) 1))))
+(def parse-volume (peg/compile '(any (+ (<- (* :d+ "%")) 1))))
 (def parse-ip4 '(any (+ (* "inet " (<- (* :d+ (repeat 3 (* "." :d+)))) "/24") 1)))
 
 (def sep " | ")
@@ -32,4 +32,4 @@
                     (string/join [layout ":" (first variant)])) sep
                   date])))
 
-(while ($? xsetroot -name ,(format-status)) nil)
+(while ($? xsetroot -name ,(format-status)) (os/sleep 0.5))
