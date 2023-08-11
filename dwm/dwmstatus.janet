@@ -24,8 +24,12 @@
         volume ($< pactl get-sink-volume @DEFAULT_SINK@)
         volume (first (peg/match parse-volume volume))
         ip4    ($< ip -4 addr)
-        ip4    (first (peg/match parse-ip4 ip4))]
-    (string/join [ip4 sep
+        ip4    (first (peg/match parse-ip4 ip4))
+        muted  (if (= "true" ($<_ dunstctl is-paused))
+                 "mute | "
+                 "")]
+    (string/join [muted
+                  ip4 sep
                   volume sep
                   (if (empty? variant)
                     layout
