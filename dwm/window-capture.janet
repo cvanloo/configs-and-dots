@@ -45,8 +45,10 @@
 (if (not (nil? (os/stat save-path)))
   ($ notify-send -u low "file already exists")
   (if (capture-selection save-path)
-    ($ notify-send -u low -i ,save-path "-" ,(string/join ["Screenshot saved to "
-                                                           "<span color='#acd7e5'>"
-                                                           save-path
-                                                           "</span>"]))
+    (do
+      ($ notify-send -u low -i ,save-path "-" ,(string/join ["Screenshot saved to "
+                                                             "<span color='#acd7e5'>"
+                                                             save-path
+                                                             "</span>"]))
+      ($ xsel -bi < ,save-path))
     ($ notify-send -u low "unable to take screenshot")))
