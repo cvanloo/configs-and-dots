@@ -44,7 +44,7 @@
 # 3. Do the capturing
 (if (not (nil? (os/stat save-path)))
   ($ notify-send -u low "file already exists")
-  (if (capture-selection save-path)
+  (if (capture-fun save-path)
     (do
       ($ notify-send -u low -i ,save-path "-" ,(string/join ["Screenshot saved to "
                                                              "<span color='#acd7e5'>"
