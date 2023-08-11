@@ -5,7 +5,7 @@
 (use sh)
 
 (def layouts `
-dvorak
+us dvorak
 us dvp
 ch
 `)
