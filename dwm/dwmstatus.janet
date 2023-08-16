@@ -36,4 +36,6 @@
                     (string/join [layout ":" (first variant)])) sep
                   date])))
 
-(while ($? xsetroot -name ,(format-status)) (os/sleep 0.5))
+(while ($? xsetroot -name ,(let [[ok res] (protect (format-status))]
+                             (if ok res "<error occurred>")))
+  (os/sleep 0.5))
