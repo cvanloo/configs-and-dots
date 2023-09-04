@@ -2,12 +2,15 @@ unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
 " Welcome to the current millenium
-set nocompatible
-set t_Co=256
 syntax on
+set nocompatible
+set term=xterm-256color
+set t_Co=256
+set t_ut=
 set showcmd
 
-colorscheme lunaperche
+"colorscheme lunaperche
+colorscheme darkblue
 
 " LINE NUMBERS:
 set rnu nu
