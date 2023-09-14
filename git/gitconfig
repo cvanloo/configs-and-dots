@@ -23,13 +23,6 @@
 	identity-unset = "! git config --global --unset \"user.identities.$1.name\"; git config --global --unset \"user.identities.$1.email\"; git config --global --unset \"user.identities.$1.signingKey\"; :"
 	identity-use = "! git config user.name \"$(git config user.identities.$1.name)\"; git config user.email \"$(git config user.identities.$1.email)\"; git config user.signingKey \"$(git config user.identities.$1.signingKey)\"; :"
 	s = status -sb
-	c = commit
-	cm = commit -m
-	p = push
-	pf = push --force-with-lease
-	amn = commit --amend --no-edit
-	ds = difftool --staged
-	a = add -A
 [user]
 	useConfigOnly = true
 [commit]
