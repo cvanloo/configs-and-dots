@@ -35,3 +35,5 @@ cp -r nvim/ ~/.config/
 
 - [Commands and Montions](./nvim_cmds.md)
 - [Vim](./vim.md)
+
+#### TODO: I should probably setup symlinks
