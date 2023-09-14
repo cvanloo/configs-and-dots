@@ -9,8 +9,7 @@ set t_Co=256
 set t_ut=
 set showcmd
 
-"colorscheme lunaperche
-colorscheme darkblue
+colorscheme badwolf
 
 " LINE NUMBERS:
 set rnu nu
