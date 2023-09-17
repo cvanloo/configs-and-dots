@@ -15,8 +15,9 @@ colorscheme badwolf
 set rnu nu
 set colorcolumn=80,120
 set cursorline
-hi CursorLine cterm=NONE ctermbg=17 ctermfg=NONE
-hi CursorLineNr term=bold cterm=bold ctermfg=012 gui=bold
+"hi CursorLine cterm=NONE ctermbg=17 ctermfg=NONE
+"hi CursorLineNr term=bold cterm=bold ctermfg=012 gui=bold
+hi CursorLineNr term=bold cterm=bold gui=bold
 
 " AUTOCOMPLETION:
 set path+=**
@@ -37,5 +38,7 @@ hi SpecialKey ctermfg=8
 nnoremap ,html :-1read $HOME/.vim/skeleton/html<CR>5jf>a
 
 command! MakeTags !ctags -R .
+
+set tabstop=4 shiftwidth=4 expandtab
 
 nmap <ESC> :
