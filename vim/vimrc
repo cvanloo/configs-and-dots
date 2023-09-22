@@ -2,11 +2,11 @@ unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
 " Welcome to the current millenium
-syntax on
 set nocompatible
 set term=xterm-256color
 set t_Co=256
 set t_ut=
+syntax on
 set showcmd
 
 colorscheme badwolf
@@ -29,7 +29,8 @@ set incsearch hlsearch " :nohlsearch
 set hidden
 
 " INVISIBLE CHARS:
-let &listchars="eol:↲,tab: ,space:·,lead:·,trail:~,extends:>,precedes:<,"
+"let &listchars="eol:↲,tab: ,space:·,lead:·,trail:~,extends:>,precedes:<,"
+set listchars=space:·,trail:·,precedes:«,extends:»,eol:↲,tab:\ 
 set list
 hi NonText ctermfg=8
 hi SpecialKey ctermfg=8
@@ -40,5 +41,17 @@ nnoremap ,html :-1read $HOME/.vim/skeleton/html<CR>5jf>a
 command! MakeTags !ctags -R .
 
 set tabstop=4 shiftwidth=4 expandtab
+set conceallevel=3
+set spelllang=de,en spell
 
-nmap <ESC> :
+command! MakeTags !ctags -R .
+
+if has('gui_running')
+    nnoremap <silent> <Esc> :
+else
+    augroup escape_mapping
+        autocmd TermResponse * nnoremap <Esc> :
+    augroup END
+end
+
+"nmap <ESC> :
