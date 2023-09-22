@@ -30,7 +30,8 @@ set hidden
 
 " INVISIBLE CHARS:
 "let &listchars="eol:↲,tab: ,space:·,lead:·,trail:~,extends:>,precedes:<,"
-set listchars=space:·,trail:·,precedes:«,extends:»,eol:↲,tab:\ 
+set listchars=eol:↲,tab:\ ,space:·,lead:\·,trail:~,extends:>,precedes:<,
+"set listchars=space:·,trail:·,precedes:«,extends:»,eol:↲,tab:\ 
 set list
 hi NonText ctermfg=8
 hi SpecialKey ctermfg=8
