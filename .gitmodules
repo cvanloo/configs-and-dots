@@ -4,3 +4,6 @@
 [submodule "dwm/dwm-6.2"]
 	path = dwm/dwm-6.2
 	url = git@github.com:cvanloo/dwm.git
+[submodule "vim/pack/vendor/start/vim-surround"]
+	path = vim/pack/vendor/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
