@@ -27,7 +27,7 @@ set colorcolumn=80,120
 set cursorline
 "hi CursorLine cterm=NONE ctermbg=17 ctermfg=NONE
 "hi CursorLineNr term=bold cterm=bold ctermfg=012 gui=bold
-hi CursorLineNr term=bold cterm=bold gui=bold
+"hi CursorLineNr term=bold cterm=bold gui=bold
 
 " AUTOCOMPLETION:
 set path+=**
@@ -41,9 +41,9 @@ set hidden
 " INVISIBLE CHARS:
 "let &listchars="eol:↲,tab: ,space:·,lead:·,trail:~,extends:>,precedes:<,"
 "set listchars=eol:↲,tab:\ ,space:·,lead:\·,trail:~,extends:>,precedes:<,
-set listchars=eol:↲,tab:\ ,space:·,lead:\·,trail:·,extends:»,precedes:«,
-hi NonText ctermfg=8 ctermbg=Black guibg=Black
+set listchars=eol:↲,tab:\ ,space:·,lead:·,trail:·,extends:»,precedes:«,
 set list
+hi NonText ctermfg=8 ctermbg=Black guibg=Black
 hi SpecialKey ctermfg=8 ctermbg=Black guibg=Black
 
 " SNIPPETS:
