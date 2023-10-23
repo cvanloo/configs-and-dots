@@ -1,7 +1,7 @@
 unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 
-" Welcome to the current millenium
+" Welcome to the current millennium
 set nocompatible
 set term=xterm-256color
 set t_Co=256
@@ -9,7 +9,17 @@ set t_ut=
 syntax on
 set showcmd
 
-colorscheme badwolf
+"colorscheme badwolf
+colorscheme simple-dark
+
+let mapleader=' '
+nnoremap <leader>pv :Ex<CR>
+nnoremap <leader>nh :nohl<CR>
+xnoremap <leader>p "_dP
+nnoremap <C-j> :cnext<CR>zz
+nnoremap <C-k> :cprev<CR>zz
+nnoremap n nzzzv
+nnoremap N Nzzzv
 
 " LINE NUMBERS:
 set rnu nu
@@ -30,11 +40,11 @@ set hidden
 
 " INVISIBLE CHARS:
 "let &listchars="eol:↲,tab: ,space:·,lead:·,trail:~,extends:>,precedes:<,"
-set listchars=eol:↲,tab:\ ,space:·,lead:\·,trail:~,extends:>,precedes:<,
-"set listchars=space:·,trail:·,precedes:«,extends:»,eol:↲,tab:\ 
+"set listchars=eol:↲,tab:\ ,space:·,lead:\·,trail:~,extends:>,precedes:<,
+set listchars=eol:↲,tab:\ ,space:·,lead:\·,trail:·,extends:»,precedes:«,
+hi NonText ctermfg=8 ctermbg=Black guibg=Black
 set list
-hi NonText ctermfg=8
-hi SpecialKey ctermfg=8
+hi SpecialKey ctermfg=8 ctermbg=Black guibg=Black
 
 " SNIPPETS:
 nnoremap ,html :-1read $HOME/.vim/skeleton/html<CR>5jf>a
@@ -42,6 +52,7 @@ nnoremap ,html :-1read $HOME/.vim/skeleton/html<CR>5jf>a
 command! MakeTags !ctags -R .
 
 set tabstop=4 shiftwidth=4 expandtab
+set scrolloff=8 sidescrolloff=8
 set conceallevel=3
 set spelllang=de,en spell
 
