@@ -322,7 +322,6 @@ Instead of the linux kernel you can also install linux-lts, linux-zen, ... there
         ip link set <interface> up # Activate an interface (They should already be activated)
         systemctl enable systemd-resolved
         systemctl enable systemd-networkd
-        systemctl enable dhcpcd
 
 * Exit and reboot
 
@@ -331,6 +330,39 @@ Instead of the linux kernel you can also install linux-lts, linux-zen, ... there
         reboot
 
 ## After the installation
+
+### Networking
+
+        systemctl enable --now systemd-networkd
+	systemctl enable --now systemd-resolved
+        ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+	vim /etc/systemd/network/20-wired.network
+        ---
+	[Match]
+	Name=enp2s0 # The wired interface name (check `ip link`)
+	[Network]
+	DHCP=yes
+	[DHCPv4]
+	RouteMetric=100
+	[IPv6AcceptRA]
+	RouteMetric=100
+
+	vim /etc/systemd/network/25-wireless.network
+	---
+	[Match]
+	Name=wlo1 # Name of the wireless interface (check `ip link`)
+	[Network]
+	DHCP=yes
+	[DHCPv4]
+	RouteMetric=600
+	[IPv6AcceptRA]
+	RouteMetric=600
+
+ 	reboot
+  	resolvectl status # check that it worked
+   	ping -c 3 archlinux.org
+
+### Window Manager
 
 If everything worked, you may now want to setup a wm/de.  
 For setting up xorg and dwm, see my other [guide](Resources/Arch_Linux/dwm.md).
