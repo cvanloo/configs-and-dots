@@ -41,7 +41,7 @@
 
         ls /sys/firmware/efi/efivars
 
-* Check internet connecion
+* Check internet connecion...
 
     List available interfaces:
 
@@ -54,6 +54,10 @@
     Test your connection:
 
         ping archlinux.org -c 3
+
+* ... or connect to WiFi
+
+        wpa_supplicant -B -i wlan0 -c <(wpa_passphrase MyWiFiSSID MyWiFiPasswd)
 
 <span style="color:orange">Note:</span> On the installation image, systemd-networkd, systemd-resolved and iwd
 are preconfigured and enabled by default. This will ***not*** be the case for
